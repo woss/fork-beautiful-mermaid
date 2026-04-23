@@ -1,15 +1,16 @@
 <div class="panel-left" id="panel-left">
-
-  <div class="panel-header">
-    <span class="panel-title" id="editor-panel-title">Source</span>
-    <div class="panel-actions">
-      <button class="icon-btn" id="copy-source-btn" title="Copy source">
+  <!-- Source toolbar — floating label + actions -->
+  <div class="source-toolbar" id="source-toolbar">
+    <span class="source-label">Source</span>
+    <div class="toolbar-spacer"></div>
+    <div class="source-actions">
+      <button class="toolbar-btn" id="copy-source-btn" title="Copy source">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
         </svg>
       </button>
-      <button class="icon-btn" id="clear-btn" title="Clear editor">
+      <button class="toolbar-btn" id="clear-btn" title="Clear editor">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="3 6 5 6 21 6"/>
           <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
@@ -35,7 +36,6 @@
 
   <!-- Config view -->
   <div class="config-panel" id="config-view">
-
     <!-- Colors section -->
     <div class="config-section">
       <div class="config-section-title">Colors</div>
@@ -101,26 +101,71 @@
       <div class="padding-field">
         <div class="padding-row">
           <label>Padding</label>
-          <input class="padding-num" id="cfg-padding" type="number" min="0" max="120" value="24" />
+          <input
+            class="padding-num"
+            id="cfg-padding"
+            type="number"
+            min="0"
+            max="120"
+            value="24"
+          />
         </div>
-        <input class="padding-slider" id="cfg-padding-slider" type="range" min="0" max="120" value="24" />
+        <input
+          class="padding-slider"
+          id="cfg-padding-slider"
+          type="range"
+          min="0"
+          max="120"
+          value="24"
+        />
       </div>
       <div class="padding-field">
         <div class="padding-row">
           <label>Edge stroke</label>
-          <input class="padding-num" id="cfg-edge-stroke" type="number" min="0.25" max="6" step="0.25" value="1" />
+          <input
+            class="padding-num"
+            id="cfg-edge-stroke"
+            type="number"
+            min="0.25"
+            max="6"
+            step="0.25"
+            value="1"
+          />
         </div>
-        <input class="padding-slider" id="cfg-edge-stroke-slider" type="range" min="0.25" max="6" step="0.25" value="1" />
+        <input
+          class="padding-slider"
+          id="cfg-edge-stroke-slider"
+          type="range"
+          min="0.25"
+          max="6"
+          step="0.25"
+          value="1"
+        />
       </div>
       <div class="padding-field">
         <div class="padding-row">
           <label>Node border</label>
-          <input class="padding-num" id="cfg-node-stroke" type="number" min="0.25" max="6" step="0.25" value="1" />
+          <input
+            class="padding-num"
+            id="cfg-node-stroke"
+            type="number"
+            min="0.25"
+            max="6"
+            step="0.25"
+            value="1"
+          />
         </div>
-        <input class="padding-slider" id="cfg-node-stroke-slider" type="range" min="0.25" max="6" step="0.25" value="1" />
+        <input
+          class="padding-slider"
+          id="cfg-node-stroke-slider"
+          type="range"
+          min="0.25"
+          max="6"
+          step="0.25"
+          value="1"
+        />
       </div>
     </div>
-
   </div>
 
   <!-- Color picker popup (shared) -->
@@ -131,7 +176,13 @@
     </div>
     <div class="color-hex-row">
       <input type="color" class="color-native" id="color-native-input" />
-      <input type="text" class="color-hex-input" id="color-hex-input" placeholder="#rrggbb" maxlength="9" />
+      <input
+        type="text"
+        class="color-hex-input"
+        id="color-hex-input"
+        placeholder="#rrggbb"
+        maxlength="9"
+      />
       <button class="color-clear-btn" id="color-clear-btn">Clear</button>
     </div>
     <div class="color-palette-title">Presets</div>
@@ -141,8 +192,19 @@
   <!-- Font picker popup -->
   <div class="font-popup" id="font-popup">
     <div class="font-search-wrap">
-      <svg class="font-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <svg
+        class="font-search-icon"
+        width="13"
+        height="13"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
       <input class="font-search" id="font-search" placeholder="Quick search" />
     </div>
@@ -150,25 +212,13 @@
   </div>
 
   <div class="status-bar">
-    <span id="status-text">Ready</span>
-    <span id="cursor-pos">Ln 1, Col 1</span>
+    <div class="status-left">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Ready</span>
+    </div>
+    <div class="status-right">
+      <span id="cursor-pos">Ln 1, Col 1</span>
+    </div>
   </div>
 
-  <!-- Samples drawer -->
-  <div class="samples-drawer">
-    <div class="samples-header" id="samples-toggle">
-      <span class="panel-title">Sample Diagrams</span>
-      <svg class="samples-toggle-icon open" id="samples-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="18 15 12 9 6 15"/>
-      </svg>
-    </div>
-    <div class="samples-body open" id="samples-body">
-      <div class="samples-inner">
-        <div class="cat-tabs" id="cat-tabs">
-          {{CATEGORY_BUTTONS}}
-        </div>
-        <div class="sample-list" id="sample-list"></div>
-      </div>
-    </div>
-  </div>
 </div>

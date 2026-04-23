@@ -12,11 +12,9 @@
   border-bottom: 1px solid var(--border);
 }
 .config-section-title {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--fg3);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
   margin-bottom: 0.625rem;
 }
 

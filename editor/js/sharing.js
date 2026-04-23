@@ -11,7 +11,7 @@ function getHashSource() {
   try {
     var obj = JSON.parse(decodeSource(hash));
     if (obj && obj.source) {
-      if (obj.theme) { themeSelect.value = obj.theme; state.theme = obj.theme; }
+      if (obj.theme) { state.theme = obj.theme; }
       return obj.source;
     }
   } catch(e) {}
